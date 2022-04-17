@@ -1,15 +1,15 @@
 [
     {
-        "id": "c8c0913cae99ad82",
+        "id": "f6f2187d.f17ca8",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "4a2c2c611ee71dfb",
+        "id": "4e96d9272f2dd04c",
         "type": "mqtt out",
-        "z": "c8c0913cae99ad82",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "topic": "lamp",
         "qos": "",
@@ -25,9 +25,9 @@
         "wires": []
     },
     {
-        "id": "6f72030bb406e8c0",
+        "id": "4bd34841d30699e9",
         "type": "mqtt in",
-        "z": "c8c0913cae99ad82",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "topic": "Room",
         "qos": "2",
@@ -41,14 +41,14 @@
         "y": 260,
         "wires": [
             [
-                "f428f2e7f87894df"
+                "5b0f9e1584910933"
             ]
         ]
     },
     {
-        "id": "f428f2e7f87894df",
+        "id": "5b0f9e1584910933",
         "type": "json",
-        "z": "c8c0913cae99ad82",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "property": "payload",
         "action": "",
@@ -57,14 +57,14 @@
         "y": 260,
         "wires": [
             [
-                "0ccec5bba04261e0"
+                "0767f510dd9ffa98"
             ]
         ]
     },
     {
-        "id": "0ccec5bba04261e0",
+        "id": "0767f510dd9ffa98",
         "type": "function",
-        "z": "c8c0913cae99ad82",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "func": "msg.payload = msg.payload[\"Amper = \"] / 1000;\nreturn msg;",
         "outputs": 1,
@@ -76,14 +76,14 @@
         "y": 260,
         "wires": [
             [
-                "e0da6d5eab0ad796"
+                "5777d4dea44e88a5"
             ]
         ]
     },
     {
-        "id": "e0da6d5eab0ad796",
+        "id": "5777d4dea44e88a5",
         "type": "ui_chart",
-        "z": "c8c0913cae99ad82",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "group": "1e757a7d2d7798d0",
         "order": 1,
@@ -125,9 +125,9 @@
         ]
     },
     {
-        "id": "d76f3a4819252dae",
+        "id": "68bcdc858a1fd857",
         "type": "ui_button",
-        "z": "c8c0913cae99ad82",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "group": "1e757a7d2d7798d0",
         "order": 1,
@@ -148,14 +148,14 @@
         "y": 120,
         "wires": [
             [
-                "4a2c2c611ee71dfb"
+                "4e96d9272f2dd04c"
             ]
         ]
     },
     {
-        "id": "3f23232361047a76",
+        "id": "d2a0a17d0094ff51",
         "type": "ui_button",
-        "z": "c8c0913cae99ad82",
+        "z": "f6f2187d.f17ca8",
         "name": "",
         "group": "1e757a7d2d7798d0",
         "order": 2,
@@ -176,7 +176,7 @@
         "y": 180,
         "wires": [
             [
-                "4a2c2c611ee71dfb"
+                "4e96d9272f2dd04c"
             ]
         ]
     },
