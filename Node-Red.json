@@ -1,1 +1,46 @@
-[{"id":"f6f2187d.f17ca8","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"f47b806940c0d74c","type":"mqtt-broker","name":"","broker":"46.101.172.136","port":"1883","clientid":"","autoConnect":true,"usetls":false,"protocolVersion":"4","keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","birthMsg":{},"closeTopic":"","closeQos":"0","closePayload":"","closeMsg":{},"willTopic":"","willQos":"0","willPayload":"","willMsg":{},"sessionExpiry":""},{"id":"c0b78f2a3eee9aee","type":"ui_tab","name":"mert-IoT","icon":"dashboard","disabled":false,"hidden":false},{"id":"67f1d221f5c76626","type":"ui_base","theme":{"name":"theme-light","lightTheme":{"default":"#0094CE","baseColor":"#0094CE","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":true,"reset":false},"darkTheme":{"default":"#097479","baseColor":"#097479","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":false},"customTheme":{"name":"Untitled Theme 1","default":"#4B7930","baseColor":"#4B7930","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"},"themeState":{"base-color":{"default":"#0094CE","value":"#0094CE","edited":false},"page-titlebar-backgroundColor":{"value":"#0094CE","edited":false},"page-backgroundColor":{"value":"#fafafa","edited":false},"page-sidebar-backgroundColor":{"value":"#ffffff","edited":false},"group-textColor":{"value":"#1bbfff","edited":false},"group-borderColor":{"value":"#ffffff","edited":false},"group-backgroundColor":{"value":"#ffffff","edited":false},"widget-textColor":{"value":"#111111","edited":false},"widget-backgroundColor":{"value":"#0094ce","edited":false},"widget-borderColor":{"value":"#ffffff","edited":false},"base-font":{"value":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"}},"angularTheme":{"primary":"indigo","accents":"blue","warn":"red","background":"grey","palette":"light"}},"site":{"name":"Node-RED Dashboard","hideToolbar":"false","allowSwipe":"false","lockMenu":"false","allowTempTheme":"true","dateFormat":"DD/MM/YYYY","sizes":{"sx":48,"sy":48,"gx":6,"gy":6,"cx":6,"cy":6,"px":0,"py":0}}},{"id":"1e757a7d2d7798d0","type":"ui_group","name":"Room","tab":"c0b78f2a3eee9aee","order":1,"disp":true,"width":"18","collapse":false,"className":""},{"id":"4e96d9272f2dd04c","type":"mqtt out","z":"f6f2187d.f17ca8","name":"","topic":"lamp","qos":"","retain":"","respTopic":"","contentType":"","userProps":"","correl":"","expiry":"","broker":"f47b806940c0d74c","x":410,"y":160,"wires":[]},{"id":"4bd34841d30699e9","type":"mqtt in","z":"f6f2187d.f17ca8","name":"","topic":"Room","qos":"2","datatype":"auto","broker":"f47b806940c0d74c","nl":false,"rap":true,"rh":0,"inputs":0,"x":130,"y":260,"wires":[["5b0f9e1584910933"]]},{"id":"5b0f9e1584910933","type":"json","z":"f6f2187d.f17ca8","name":"","property":"payload","action":"","pretty":false,"x":270,"y":260,"wires":[["0767f510dd9ffa98"]]},{"id":"0767f510dd9ffa98","type":"function","z":"f6f2187d.f17ca8","name":"","func":"msg.payload = msg.payload[\"Amper = \"] / 1000;\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":420,"y":260,"wires":[["5777d4dea44e88a5"]]},{"id":"5777d4dea44e88a5","type":"ui_chart","z":"f6f2187d.f17ca8","name":"","group":"1e757a7d2d7798d0","order":1,"width":"27","height":"9","label":"Lamp","chartType":"line","legend":"false","xformat":"HH:mm:ss","interpolate":"linear","nodata":"","dot":false,"ymin":"","ymax":"1","removeOlder":"1","removeOlderPoints":"","removeOlderUnit":"60","cutout":0,"useOneColor":false,"useUTC":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"outputs":1,"useDifferentColor":false,"className":"","x":570,"y":260,"wires":[[]]},{"id":"68bcdc858a1fd857","type":"ui_button","z":"f6f2187d.f17ca8","name":"","group":"1e757a7d2d7798d0","order":1,"width":0,"height":0,"passthru":false,"label":"on","tooltip":"","color":"","bgcolor":"","className":"","icon":"","payload":"1","payloadType":"str","topic":"topic","topicType":"msg","x":130,"y":120,"wires":[["4e96d9272f2dd04c"]]},{"id":"d2a0a17d0094ff51","type":"ui_button","z":"f6f2187d.f17ca8","name":"","group":"1e757a7d2d7798d0","order":2,"width":0,"height":0,"passthru":false,"label":"off","tooltip":"","color":"","bgcolor":"","className":"","icon":"","payload":"0","payloadType":"str","topic":"topic","topicType":"msg","x":130,"y":180,"wires":[["4e96d9272f2dd04c"]]}]
+[
+    {
+        "id": "4e96d9272f2dd04c",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "lamp",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f47b806940c0d74c",
+        "x": 410,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f47b806940c0d74c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
