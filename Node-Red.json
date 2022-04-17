@@ -1,8 +1,15 @@
 [
     {
-        "id": "4e96d9272f2dd04c",
+        "id": "c8c0913cae99ad82",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4a2c2c611ee71dfb",
         "type": "mqtt out",
-        "z": "f6f2187d.f17ca8",
+        "z": "c8c0913cae99ad82",
         "name": "",
         "topic": "lamp",
         "qos": "",
@@ -16,6 +23,162 @@
         "x": 410,
         "y": 160,
         "wires": []
+    },
+    {
+        "id": "6f72030bb406e8c0",
+        "type": "mqtt in",
+        "z": "c8c0913cae99ad82",
+        "name": "",
+        "topic": "Room",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f47b806940c0d74c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "f428f2e7f87894df"
+            ]
+        ]
+    },
+    {
+        "id": "f428f2e7f87894df",
+        "type": "json",
+        "z": "c8c0913cae99ad82",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "0ccec5bba04261e0"
+            ]
+        ]
+    },
+    {
+        "id": "0ccec5bba04261e0",
+        "type": "function",
+        "z": "c8c0913cae99ad82",
+        "name": "",
+        "func": "msg.payload = msg.payload[\"Amper = \"] / 1000;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 260,
+        "wires": [
+            [
+                "e0da6d5eab0ad796"
+            ]
+        ]
+    },
+    {
+        "id": "e0da6d5eab0ad796",
+        "type": "ui_chart",
+        "z": "c8c0913cae99ad82",
+        "name": "",
+        "group": "1e757a7d2d7798d0",
+        "order": 1,
+        "width": "27",
+        "height": "9",
+        "label": "Lamp",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "1",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 570,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d76f3a4819252dae",
+        "type": "ui_button",
+        "z": "c8c0913cae99ad82",
+        "name": "",
+        "group": "1e757a7d2d7798d0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "on",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "4a2c2c611ee71dfb"
+            ]
+        ]
+    },
+    {
+        "id": "3f23232361047a76",
+        "type": "ui_button",
+        "z": "c8c0913cae99ad82",
+        "name": "",
+        "group": "1e757a7d2d7798d0",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "off",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "4a2c2c611ee71dfb"
+            ]
+        ]
     },
     {
         "id": "f47b806940c0d74c",
@@ -42,5 +205,24 @@
         "willPayload": "",
         "willMsg": {},
         "sessionExpiry": ""
+    },
+    {
+        "id": "1e757a7d2d7798d0",
+        "type": "ui_group",
+        "name": "Room",
+        "tab": "c0b78f2a3eee9aee",
+        "order": 1,
+        "disp": true,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c0b78f2a3eee9aee",
+        "type": "ui_tab",
+        "name": "mert-IoT",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]
