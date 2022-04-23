@@ -1,0 +1,107 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "694adff1b701cdbb",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "Room",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f47b806940c0d74c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "3d5752585023293a"
+            ]
+        ]
+    },
+    {
+        "id": "3d5752585023293a",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "func": "var time = Date();\nvar stringValue = msg.payload;\n\nvar floatValue = parseFloat(stringValue).toFixed(2);\n\nmsg.payload = [{\"time\":time ,\"current\": floatValue}];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "3e14c76144f7e938"
+            ]
+        ]
+    },
+    {
+        "id": "3e14c76144f7e938",
+        "type": "mongodb4",
+        "z": "f6f2187d.f17ca8",
+        "clientNode": "e1cbf6009aafdac5",
+        "collection": "current-data",
+        "operation": "insertOne",
+        "output": "forEach",
+        "name": "",
+        "x": 480,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f47b806940c0d74c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "serverIP",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "e1cbf6009aafdac5",
+        "type": "mongodb4-client",
+        "name": "mongodb-config",
+        "protocol": "mongodb",
+        "hostname": "mongodb://mongo:mongo@46.101.172.136:27888/iot-database/?authSource=admin",
+        "port": "",
+        "dbName": "iot-database",
+        "authSource": "admin",
+        "authMechanism": "DEFAULT",
+        "tls": false,
+        "tlsCAFile": "",
+        "tlsInsecure": false,
+        "uri": "mongodb://mongo:mongo@serverIP:27888/iot-database/?authSource=admin",
+        "advanced": "",
+        "uriTabActive": "tab-uri-advanced"
+    }
+]
