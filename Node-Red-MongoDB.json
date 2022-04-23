@@ -92,7 +92,7 @@
         "type": "mongodb4-client",
         "name": "mongodb-config",
         "protocol": "mongodb",
-        "hostname": "mongodb://mongo:mongo@46.101.172.136:27888/iot-database/?authSource=admin",
+        "hostname": "mongodb://mongo:mongo@serverIP:27888/iot-database/?authSource=admin",
         "port": "",
         "dbName": "iot-database",
         "authSource": "admin",
